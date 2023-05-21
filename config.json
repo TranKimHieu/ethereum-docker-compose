@@ -1,0 +1,10 @@
+{
+  "language": "Solidity",
+  "sources":
+  {
+    "MyContract.sol":
+    {
+      "urls": "contracts/sample_apps/01_sample_contract/MyContract.sol"
+    }
+  }
+}

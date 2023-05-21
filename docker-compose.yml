@@ -1,0 +1,23 @@
+version: "3"
+services:
+  smart-contracts:
+    build:
+      context: .
+      dockerfile: smart_contract.Dockerfile
+    container_name: "${CONTAINER_NAME}"
+    volumes:
+      - .:/sources
+    working_dir: /sources
+    stdin_open: true
+    tty: true
+    command: --standard-json < config.json > output.json
+    depends_on:
+      - "ethereum"
+  ethereum:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: ethereum.Dockerfile
+    container_name: "${ETHEREUM_RPC_CONTAINER_NAME}"
+    ports:
+      - "${ETHEREUM_NETWORK_EXPOSED_PORT}:8545"
