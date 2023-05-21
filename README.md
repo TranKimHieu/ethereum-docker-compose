@@ -9,8 +9,13 @@ Almost all smart contracts have tests with them, so feel free to play around wit
 ## How to Run
 
 ```sh
-$ npm install
-$ npx hardhat test
+$ Build Container: docker-compose up -d
+$ Run Ganache Container: 
+- docker exec -it ethereum ash
+- ganache-cli -a --db /app/db
+$ Run Hardhat Container
+- docker exec -it smart-contract-container ash
+- npm i
 ```
 
 ## Getting Started with Solidity
@@ -72,14 +77,9 @@ $ npx hardhat test
 ## Contributors
 
 We love pull requests from everyone. By participating in submitting examples, we believe other people will find them useful when they getting started with Solidity.
-
+- [Dwayne Kuff](https://twitter.com/Hieutk8)
 - [Samnang Chhun](https://twitter.com/samnangchhun)
 - [Web3 Together](https://twitter.com/web3together)
-
 ## License
 
 The software is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Development
-RUN Ethereum Chain
-> command: ganache-cli -i ${ETHEREUM_NETWORK_ID:-666}
